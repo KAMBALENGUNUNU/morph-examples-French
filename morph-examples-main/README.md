@@ -26,15 +26,15 @@ Ce projet contient un contrat simple qui verrouillera une certaine quantité d'E
 Ce répertoire contient une configuration Frontend simple vous permettant de connecter et d'interagir avec vos contrats intelligents directement depuis l'interface utilisateur.
 <!--
 
-## Miscellaneous
+## Divers
 
 ### [create2-demo](https://github.com/morphl2/morph-examples/tree/main/contract-deploy-demo)
 
-This project demonstrates how to use the `create2` opcode and tests it across various networks.
+Ce projet montre comment utiliser l'opcode `create2` et le teste sur différents réseaux.
 
 ### [gas-estimation-demo](https://github.com/morphl2/morph-examples/tree/main/contract-deploy-demo)
 
-This project demonstrates how to use estimate gas on Morph
+Ce projet montre comment utiliser l'estimation du gaz sur Morph.
 
 -->
 
