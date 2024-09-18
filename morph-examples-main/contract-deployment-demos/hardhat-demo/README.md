@@ -1,45 +1,44 @@
-# Morph Contract Deployment Demo
+# Démonstration de Déploiement de Contrat sur Morph
+Ce projet montre comment utiliser Hardhat pour déployer un contrat sur le réseau de test Morph Holesky. Le projet contient un contrat simple qui verrouille une certaine quantité d'Ether pour un temps donné dans le contrat déployé.
 
-This project demonstrates how to use hardhat to deploy a contract on the Morph Holesky Testnet. This project contains a simple contract that will lock a certain amount of Ether in the deployed contract for a specified amount of time.
+## Prérequis
 
-## Prerequisites
+- Configuration réseau : https://docs.morphl2.io/docs/build-on-morph/build-on-morph/development-setup
 
-- Network setup: https://docs.morphl2.io/docs/build-on-morph/build-on-morph/development-setup
+## Déployer avec Hardhat
 
-## Deploy with Hardhat
+### Installer les dépendances
 
-### Install Dependencies
-
-If you haven't already, install [nodejs](https://nodejs.org/en/download/) and [yarn](https://classic.yarnpkg.com/lang/en/docs/install).
+Si ce n'est pas déjà fait, installez [nodejs](https://nodejs.org/en/download/) et [yarn](https://classic.yarnpkg.com/lang/en/docs/install).
 
 ```bash
 cd contract-deployment-demos/hardhat-demo
 yarn install
 ```
-This will install everything you need include hardhat for you.
+Cela installera tout ce dont vous avez besoin, y compris Hardhat.
 
 
-### Compile
+### CCompiler
 
-Compile your contract
+Compilez votre contrat avec :
 
 ```bash
 yarn compile
 ```
 
-### Test
+### Tester
 
-This will run the test script in test/Lock.ts
+Cela exécutera le script de test dans test/Lock.ts :
 
 ```bash
 yarn test
 ```
 
-### Deploy
+### Déployer
 
- Create a `.env` file following the example `.env.example` in the root directory. Change `PRIVATE_KEY` to your own account private key in the `.env`.
+ Créez un fichier `.env` en suivant l'exemple `.env.example` à la racine du projet. Remplacez `PRIVATE_KEY`par la clé privée de votre compte.
 
- And Change the network settings in the hardhat.config.ts file with the following information:
+Modifiez les paramètres réseau dans le fichier hardhat.config.ts avec les informations suivantes :
 
    ```javascript
     morphTestnet: {
@@ -48,15 +47,14 @@ yarn test
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     }
    ```
-Then run the following command to deploy the contract on the Morph Holesky Testnet. This will run the deployment script that set the initialing parameters, you can edit the script in scripts/deploy.ts
-
+Ensuite, exécutez la commande suivante pour déployer le contrat sur le réseau de test Morph Holesky. Cela exécutera le script de déploiement qui définit les paramètres initiaux, vous pouvez éditer le script dans scripts/deploy.ts :
 ```bash
 yarn deploy:morphTestnet
 ```
 
-### Verify your contracts on Morph Explorer
+### Vérifier vos contrats sur Morph Explorer
 
-To verify your contract through hardhat, you need to add the following Etherscan and Sourcify configs to your hardhat.config.js file:
+Pour vérifier votre contrat via Hardhat, ajoutez les configurations Etherscan et Sourcify dans votre fichier hardhat.config.js :
 
 ```javascript
 module.exports = {
@@ -80,22 +78,22 @@ module.exports = {
   },
 };
 ```
-Then run the hardhat verify command to finish the verification
+Ensuite, exécutez la commande de vérification de Hardhat pour finaliser la vérification :
 
 ```bash
 npx hardhat verify --network morphTestnet DEPLOYED_CONTRACT_ADDRESS <ConstructorParameter>
 ```
 
-For example
+Par exemple :
 
 ```bash
 npx hardhat verify --network morphTestnet 0x8025985e35f1bAFfd661717f66fC5a434417448E '0.00001'
 ```
 
 
-Once succeed, you can check your contract and the deployment transaction on [Morph Holesky Explorer](https://explorer-holesky.morphl2.io)
+Une fois réussie, vous pourrez consulter votre contrat et la transaction de déploiement sur [Morph Holesky Explorer](https://explorer-holesky.morphl2.io)
    
 
 ## Support
 
-Thank you for participating in and developing on the Morph Holesky Testnet! If you encounter any issues, join our [Discord](https://discord.com/invite/5SmG4yhzVZ) and find us at #dev-help channel.
+Merci de participer au développement sur le réseau de test Morph Holesky ! Si vous rencontrez des problèmes, rejoignez notre [Discord](https://discord.com/invite/5SmG4yhzVZ)et trouvez-nous dans le canal #dev-help.
